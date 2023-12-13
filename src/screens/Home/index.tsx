@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
+
 function HomeScreen() {
     const [isPressed, setIspressed] = useState(false)
     const buttonColorMedium = (isPressed ? '#31B057' : '#EFEEFC')

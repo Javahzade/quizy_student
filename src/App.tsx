@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
-
-function App() {
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { RootNavigation } from './RootNavigation';
+export function App() {
 
     return (
-        <SafeAreaView style={{}}>
-           
-        </SafeAreaView>
+        <NavigationContainer>
+          <RootNavigation/>
+        </NavigationContainer>
     );
 }
-
-
-
-
-
 export default App;
