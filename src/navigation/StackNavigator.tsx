@@ -5,7 +5,7 @@ import HomeScreen from "../screens/Home";
 const Stack=createStackNavigator()
 export function StackNavigator(){
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerShown:false}}>
             <Stack.Screen name='Home' component={HomeScreen}/>
         </Stack.Navigator>
     )
