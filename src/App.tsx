@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { RootNavigation } from './RootNavigation';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { RootNavigation } from './navigation/RootNavigation';
 export function App() {
 
     return (
-        <NavigationContainer>
-          <RootNavigation/>
-        </NavigationContainer>
+       <SafeAreaProvider>
+        <RootNavigation/>
+       </SafeAreaProvider>
     );
 }
 export default App;
