@@ -1,45 +1,49 @@
 import React, { useState } from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
-
+import { ImageBackground, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
+import LevelButton from '../../components/LevelButton/LevelButton';
+import VectorIcon from '../../assets/icons/Vector.svg'
+import ArrowVectorIcon from '../../assets/icons/ArrowVector.svg'
+import ForwardVectorIcon from '../../assets/icons/ForwardVector.svg'
 function HomeScreen() {
-    const [isPressed, setIspressed] = useState(false)
-    const buttonColorMedium = (isPressed ? '#31B057' : '#EFEEFC')
-    const onPress = () => setIspressed(true)
-    const [focusedButton, setFocusedButton] = useState(false)
-    const buttonColorHard = (focusedButton ? '#FD3654' : '#EFEEFC')
-    const buttonColor = () => setFocusedButton(true)
-    const [clickedButton,setClickedButton]=useState(false)
-    const buttonColorLow=(clickedButton ? '#FF9C00':'#EFEEFC')
-    const onclick =()=>setClickedButton(true)
+    const [selectedLevel,setSelectedLevel]=useState<string|null>(null);
+    const onSelectLevel=(key:string)=>{
+        setSelectedLevel(key)
+    }
     return (
+      <ImageBackground style={styles.background} source={require('../../assets/images/background.png')}>
         <SafeAreaView style={styles.area}>
-            <View>
-                <Image style={{ marginLeft: 230 }} source={require("../../assets/icons/Group8.png")} />
-            </View>
-            <View>
-                <Image style={{ marginLeft: 56, marginTop: -130 }} source={require("../../assets/icons/Oval.png")} />
-                <Image style={{ marginLeft: 355, marginTop: -205 }} source={require('../../assets/icons/star.png')} />
-            </View>
-            <View style={styles.category}>
-                <Text style={styles.choosing}>Choose category</Text>
-                <Text style={styles.sport}>Sport</Text>
-                <Image style={{ marginLeft: 330, marginTop: -24 }} source={require('../../assets/icons/arrow.png')} />
-            </View>
-            <View style={styles.level}>
-                <Text style={{ color: 'white', marginLeft: 5, fontSize: 16 }}>Choose level</Text>
-            </View>
-            <View style={styles.container}>
-                <TouchableOpacity onPress={onclick} style={[styles.low,{backgroundColor:buttonColorLow}]}>
-                    <Text style={{ color: '#6A5AE0', fontFamily: 'Poppins', fontSize: 20, fontWeight: "700", lineHeight: 24 }}>Low</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={onPress} style={[styles.medium, { backgroundColor: buttonColorMedium }]}>
-                    <Text style={{ color: '#6A5AE0', fontFamily: 'Poppins', fontSize: 20, fontWeight: '700', lineHeight: 24 }}>Medium</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={buttonColor} style={[styles.hard, { backgroundColor: buttonColorHard }]}>
-                    <Text style={{ color: '#6A5AE0', fontFamily: 'Poppins', fontSize: 20, fontWeight: '700', lineHeight: 24 }}>Hard</Text>
-                </TouchableOpacity>
-            </View>
-            <View>
+          <View style={styles.header}>
+            <TouchableOpacity style={{width:24,height:24}}>
+                <VectorIcon style={{marginTop:48}}/>
+            </TouchableOpacity>
+          </View>
+          <View>
+
+          <View style={{marginBottom:24}}>
+              <Text style={styles.choosing}>Choose category</Text>
+              <View style={{flexDirection:'row',justifyContent:'space-between', alignItems:'center'}}>
+                 <Text style={styles.sport}>Sport</Text>
+                 <TouchableOpacity>
+                    <ArrowVectorIcon/>
+                 </TouchableOpacity>
+              </View>
+              <Text style={{ color: 'white', fontSize: 16 }}>Choose level</Text>
+          </View>
+          <View style={styles.container}>
+              <LevelButton buttonTitle='Low' onSelect={()=>onSelectLevel('low')} isSelected={selectedLevel==='low'} onSelectColor={'#FF9C00'}/>
+              <LevelButton buttonTitle='MEDIUM' onSelect={()=>onSelectLevel('medium')}isSelected={selectedLevel==='medium'} onSelectColor={'#31B057'}/>
+              <LevelButton buttonTitle='HARD' onSelect={()=>onSelectLevel('hard')} isSelected={selectedLevel==='hard'}onSelectColor={'#FD3654'}/>
+          </View>
+          </View>
+          <View>
+             <TouchableOpacity style={styles.start}>
+              <Text style={{ color: 'white', fontWeight: '600', fontSize: 18}}>Start QUIZ</Text>
+              <View style={{position:'absolute', right:10}}>
+                <ForwardVectorIcon/>
+              </View>
+             </TouchableOpacity>
+          </View>
+            {/* <View>
                 <Text style={{ fontSize: 16, color: 'white', marginLeft: 32, marginTop: 22 }}>Choose type</Text>
             </View>
             <View style={styles.choosingtype}>
@@ -64,23 +68,10 @@ function HomeScreen() {
                 </View>
             </View>
             <View style={{ flexDirection: 'row', marginTop: -70}}>
-                <View>
-                    <Image source={require('../../assets/icons/Group7.png')} />
-                    <Image style={{marginTop:-230,marginLeft:300}} source={require('../../assets/icons/Oval(1).png')} />
-                </View>
-                <TouchableOpacity>
-                    <View style={styles.start}>
-                        <View>
-                            <Text style={{ color: 'white', fontWeight: '600', fontSize: 18,marginLeft:120}}>Start QUIZ</Text>
-                        </View>
-                        <View>
-                            <Image style={{marginLeft:100}} source={require('../../assets/icons/forward.png')} />
-                        </View>
-                    </View>
-                </TouchableOpacity>
-            </View>
-
+            </View> */}
         </SafeAreaView>
+      </ImageBackground>
+        
     );
 }
 
@@ -88,13 +79,17 @@ function HomeScreen() {
 
 
 const styles = StyleSheet.create({
+    background:{
+        flex:1,
+        backgroundColor:'#5B4DC3'
+    },
     area: {
         flex: 1,
-        backgroundColor: '#5B4DC3'
+        paddingHorizontal:30,
+        justifyContent:'space-between'
     },
-    category: {
-        marginHorizontal: 30,
-        marginTop: -100
+    header:{
+        alignItems:'flex-end',
     },
     choosing: {
         color: 'white',
@@ -111,37 +106,6 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        marginHorizontal: 50
-    },
-    low: {
-        backgroundColor: "#FF9C00",
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 10,
-        borderRadius: 10,
-        width: 110,
-        height: 60,
-        marginRight: 32,
-    },
-    medium: {
-        backgroundColor: '#EFEEFC',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 10,
-        borderRadius: 10,
-        width: 110,
-        height: 60,
-        marginRight: 25,
-    },
-    hard: {
-        backgroundColor: '#EFEEFC',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 10,
-        borderRadius: 10,
-        width: 110,
-        height: 60,
-        marginLeft: 10
     },
     choosingtype: {
         flexDirection: "row",
@@ -180,12 +144,9 @@ const styles = StyleSheet.create({
       backgroundColor:"#6A5AE0",
       alignItems:"center",
       justifyContent:'center',
-      borderRadius:12,
-      width:360,
+      borderRadius:10,
       height:60,
-      flexDirection:"row",
-      marginLeft:-300,
-      marginTop:240
+      marginBottom:20
     }
 });
 
