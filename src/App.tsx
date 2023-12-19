@@ -1,12 +1,15 @@
 import React from "react";
 import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import AppLogoIcon from "./svgIcons/AppLogo";
+import ArrowIcon from "./svgIcons/arrow";
 
 function App() {
     return (
         <SafeAreaView style={styles.area}>
             <View style={styles.view}>
                 <View>
-                    <Image style={styles.logo} source={require("./assets/icons/AppLogo.png")} />
+                    {/* <Image style={styles.logo} source={require("./assets/icons/AppLogo.png")} /> */}
+                    <AppLogoIcon/>
                 </View>
                 <View style={styles.men}>
                     <Image source={require("./assets/images/man1.png")} />
@@ -34,7 +37,7 @@ function App() {
                                 </Text>
                             </View>
                             <View>
-                                <Image source={require("./assets/icons/arrow.png")} />
+                                <ArrowIcon color={"white"}/>
                             </View>
                         </View>
                     </TouchableOpacity>
@@ -46,7 +49,7 @@ function App() {
                                 </Text>
                             </View>
                             <View>
-                                <Image style={{ tintColor: "#6A5AE0" }} source={require("./assets/icons/arrow.png")} />
+                                <ArrowIcon color={"#6A5AE0"}/>
                             </View>
                         </View>
                     </TouchableOpacity>
