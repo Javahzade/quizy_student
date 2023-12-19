@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { Image, SafeAreaView, View } from "react-native";
 function App(){
@@ -119,3 +120,16 @@ export default App
 
 
 
+=======
+import React from 'react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {RootNavigation} from './navigation/RootNavigation';
+export function App() {
+  return (
+    <SafeAreaProvider>
+      <RootNavigation />
+    </SafeAreaProvider>
+  );
+}
+export default App;
+>>>>>>> fd29d4ff52c4546957a73a99c6388161f3372b97
