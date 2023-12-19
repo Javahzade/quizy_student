@@ -75,9 +75,6 @@ function HomeScreen() {
     );
 }
 
-
-
-
 const styles = StyleSheet.create({
     background:{
         flex:1,
@@ -150,4 +147,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeScreen;
+export default HomeScreen;
