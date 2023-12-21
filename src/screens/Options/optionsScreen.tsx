@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageBackground, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import AppLogoIcon from "./svgIcons/AppLogo";
-import ArrowIcon from "./svgIcons/arrow";
+import AppLogoIcon from "../../svgIcons/AppLogo";
+import ArrowIcon from "../../svgIcons/arrow";
 
 const OptionsScreen = () => {
     return (
