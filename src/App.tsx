@@ -27,12 +27,17 @@ const App = () => {
 
                         <TouchableOpacity style={styles.loginButton}>
                             <Text style={styles.textLogin}>Login</Text>
-                            <ArrowIcon color={"white"} />
+                            <View style={{ position: "absolute", right: 14 }}>
+                                <ArrowIcon color={"white"} />
+                            </View>
                         </TouchableOpacity>
 
                         <TouchableOpacity style={styles.createButton}>
                             <Text style={styles.textCreate}>Create account</Text>
-                            <ArrowIcon color={"#6A5AE0"} />
+                            <View style={{ position: "absolute", right: 10 }}>
+                                <ArrowIcon color={"#6A5AE0"} />
+
+                            </View>
                         </TouchableOpacity>
                     </View>
                 </View>
