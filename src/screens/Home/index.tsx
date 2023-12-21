@@ -10,7 +10,7 @@ function HomeScreen() {
         setSelectedLevel(key)
     }
     return (
-      <ImageBackground style={styles.background} source={require('../../assets/images/backGround.png')}>
+      <ImageBackground style={styles.background} source={require('../../assets/images/background.png')}>
         <SafeAreaView style={styles.area}>
           <View style={styles.header}>
             <TouchableOpacity style={{width:24,height:24}}>
