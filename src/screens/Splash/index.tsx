@@ -5,7 +5,7 @@ import AppLogoIcon from "../../svgIcons/AppLogo";
 function SplashScreen() {
     return (
         <SafeAreaView style={styles.area}>
-            <ImageBackground style={styles.back} source={require("./assets/images/background.png")}>
+            <ImageBackground style={styles.back} source={require("../../assets/images/background.png")}>
                 <View style={styles.logo}>
                     <AppLogoIcon />
                 </View>

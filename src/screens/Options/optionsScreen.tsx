@@ -6,7 +6,7 @@ import ArrowIcon from "../../svgIcons/arrow";
 const OptionsScreen = () => {
     return (
         <SafeAreaView style={styles.area}>
-            <ImageBackground style={styles.back} source={require("./assets/images/Background.png")} >
+            <ImageBackground style={styles.back} source={require("../../assets/images/background.png")} >
                 <View style={styles.view}>
 
                     <View style={styles.logo}>
@@ -14,8 +14,8 @@ const OptionsScreen = () => {
                     </View>
 
                     <View style={styles.men}>
-                        <Image source={require("./assets/images/man1.png")} />
-                        <Image source={require("./assets/images/man2.png")} />
+                        <Image source={require("../../assets/images/man1.png")} />
+                        <Image source={require("../../assets/images/man2.png")} />
                     </View>
 
                     <View style={styles.loginBox}>

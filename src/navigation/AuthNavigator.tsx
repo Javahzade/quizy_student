@@ -12,7 +12,7 @@ export function AuthNavigator() {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Otions" component={OptionsScreen} />
+      <Stack.Screen name="Options" component={OptionsScreen} />
       <Stack.Screen name="SignIn" component={SignIn} />
       <Stack.Screen name="SignUp" component={SignUp} />
     </Stack.Navigator>
