@@ -1,112 +1,92 @@
 import React from "react";
-import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ImageBackground, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AppLogoIcon from "./svgIcons/AppLogo";
 import ArrowIcon from "./svgIcons/arrow";
 
-function App() {
+const App = () => {
     return (
         <SafeAreaView style={styles.area}>
-            <View style={styles.view}>
-                <View>
-                    {/* <Image style={styles.logo} source={require("./assets/icons/AppLogo.png")} /> */}
-                    <AppLogoIcon/>
-                </View>
-                <View style={styles.men}>
-                    <Image source={require("./assets/images/man1.png")} />
-                    <Image source={require("./assets/images/man2.png")} />
-                </View>
-                <View style={styles.back}>
-                    <Image style={{ width: 410, height: 900 }} source={require("./assets/images/Background.png")} />
-                </View>
-                <View style={styles.box}>
-                    <View>
-                        <Text style={styles.logOrSign}>
-                            Login or Sign Up
-                        </Text>
+            <ImageBackground style={styles.back} source={require("./assets/images/Background.png")} >
+                <View style={styles.view}>
+
+                    <View style={styles.logo}>
+                        <AppLogoIcon />
                     </View>
-                    <View>
-                        <Text style={styles.textDescription}>
+
+                    <View style={styles.men}>
+                        <Image source={require("./assets/images/man1.png")} />
+                        <Image source={require("./assets/images/man2.png")} />
+                    </View>
+
+                    <View style={styles.loginBox}>
+                        <Text style={styles.logOrSign}>Login or Sign Up</Text>
+
+                        <Text style={styles.description}>
                             {"   Login or create an account to take\nquiz, take part in challenge, and more"}
                         </Text>
+
+                        <TouchableOpacity style={styles.loginButton}>
+                            <Text style={styles.textLogin}>Login</Text>
+                            <ArrowIcon color={"white"} />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.createButton}>
+                            <Text style={styles.textCreate}>Create account</Text>
+                            <ArrowIcon color={"#6A5AE0"} />
+                        </TouchableOpacity>
                     </View>
-                    <TouchableOpacity>
-                        <View style={styles.buttonLogin}>
-                            <View>
-                                <Text style={styles.textLogin}>
-                                    Login
-                                </Text>
-                            </View>
-                            <View>
-                                <ArrowIcon color={"white"}/>
-                            </View>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <View style={styles.buttonCreate}>
-                            <View>
-                                <Text style={styles.textCreate}>
-                                    Create account
-                                </Text>
-                            </View>
-                            <View>
-                                <ArrowIcon color={"#6A5AE0"}/>
-                            </View>
-                        </View>
-                    </TouchableOpacity>
                 </View>
-
-
-
-            </View>
-
+            </ImageBackground>
         </SafeAreaView>
-    )
-}
+    );
+};
 
-export default App
+export default App;
 
 const styles = StyleSheet.create({
     area: {
         flex: 1,
         backgroundColor: "#6A5AE0"
     },
+    back: {
+        flex: 1,
+        resizeMode: "cover",
+    },
     view: {
+        flex: 1,
         alignItems: "center",
-        marginTop: 30
+        justifyContent: "center",
     },
     logo: {
-        height: 100,
-        width: 70
+        marginBottom: 10,
     },
     men: {
         flexDirection: "row",
-        marginVertical: 30
+        marginVertical: 30,
     },
-    back: {
-        alignItems: "center",
-        justifyContent: "center",
-        flex: 1
-    },
-    box: {
+    loginBox: {
         height: 300,
         width: 380,
         backgroundColor: "white",
         borderRadius: 15,
         alignItems: "center",
-        marginTop: 60
+        marginTop: 60,
+        padding: 20,
     },
     logOrSign: {
         fontSize: 26,
         fontWeight: "500",
         color: "#001833",
-        margin: 16
+        marginBottom: 10,
     },
-    textDescription: {
+    description: {
         fontSize: 18,
         fontWeight: "400",
-        color: "#858494"
+        color: "#858494",
+        textAlign: "center",
+        marginBottom: 20,
     },
-    buttonLogin: {
+    loginButton: {
         flexDirection: "row",
         backgroundColor: "#6A5AE0",
         borderRadius: 10,
@@ -114,28 +94,29 @@ const styles = StyleSheet.create({
         height: 65,
         justifyContent: "center",
         alignItems: "center",
-        marginVertical: 16
+        marginVertical: 16,
     },
-    textLogin: {
-        fontSize: 18,
-        color: "white",
-        fontWeight: "600",
-        marginHorizontal: 120
-    },
-    buttonCreate: {
+    createButton: {
         flexDirection: "row",
         backgroundColor: "#EFEEFC",
         borderRadius: 10,
         width: 350,
         height: 65,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+    },
+
+    textLogin: {
+        fontSize: 18,
+        fontWeight: "600",
+        marginHorizontal: 20,
+        color: "white"
     },
     textCreate: {
         fontSize: 18,
-        color: "#6A5AE0",
         fontWeight: "600",
-        marginHorizontal: 80
-    }
+        marginHorizontal: 20,
+        color: "#6A5AE0"
 
-}) 
+    }
+});
