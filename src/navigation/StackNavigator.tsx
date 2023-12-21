@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 export function StackNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
+      <Stack.Screen name={"SplashScreen"} component={SplashScreen} />
       <Stack.Screen name={"Home"} component={HomeScreen} />
       <Stack.Screen name={"truefalse"} component={TrueFalseScreen} />
     </Stack.Navigator>
