@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
+import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { RootNavigation } from './navigation/RootNavigation';
 
 function App() {
-
-    return (
-        <SafeAreaView style={{}}>
-           
-        </SafeAreaView>
-    );
+  return (
+    <SafeAreaProvider>
+      <RootNavigation />
+    </SafeAreaProvider>
+  );
 }
+export default App;
 
-
-
-
-
-export default App;
