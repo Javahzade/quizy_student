@@ -11,15 +11,15 @@ function HomeScreen() {
     const onSelectLevel=(key:string)=>{
         setSelectedLevel(key)
     }
-    const [choosingLevel,setChoosingLevel]=useState<string|null>(null);
-    const onChoosingLevel=(key:string)=>{
-        setChoosingLevel(key)
+    const [choosedLevel,setChoosedLevel]=useState<string|null>(null);
+    const onChooseLevel=(key:string)=>{
+        setChoosedLevel(key)
     }
     return (
       <ImageBackground style={styles.background} source={require('../../assets/images/background.png')}>
         <SafeAreaView style={styles.area}>
           <View style={styles.header}>
-            <TouchableOpacity style={{width:'1%',height:'1%'}}>
+            <TouchableOpacity style={{width:'3%',height:'3%'}}>
                 <VectorIcon style={{marginTop:30}}/>
             </TouchableOpacity>
           </View>
@@ -45,8 +45,8 @@ function HomeScreen() {
                 <Text style={{ fontSize: 16, color: 'white'}}>Choose type</Text>
              </View>
                 <View style={styles.button}>
-                 <ChoosingButton buttonTitle='True/False' onSelect={()=>onChoosingLevel('True/False')} isChoosed={choosingLevel==='true/false'} onChoosingColor={'#6A6AD0'}/>
-                 <ChoosingButton buttonTitle='Multiple' onSelect={()=>onChoosingLevel('Multiple')} isChoosed={choosingLevel==='multiple'} onChoosingColor={'#6A6AD0'}/>
+                 <ChoosingButton buttonTitle='True/False' onSelect={()=>onChooseLevel('True/False')} isSelected={choosedLevel==='true/false'} onSelectColor={'#6A6AD0'}/>
+                 <ChoosingButton buttonTitle='Multiple' onSelect={()=>onChooseLevel('Multiple')} isSelected={choosedLevel==='multiple'} onSelectColor={'white'}/>
                 </View>
             </View>
             <View style={styles.timer}>
@@ -111,19 +111,6 @@ const styles = StyleSheet.create({
     button:{
         flexDirection:'row',
         justifyContent:'space-evenly'
-    },
-    truefalse: {
-        backgroundColor: "#6A6AD0",
-        alignItems: "center",
-        justifyContent: 'center',
-        width: 170,
-        height: 70,
-        borderRadius: 10,
-    },
-    multiple: {
-        backgroundColor: "#EFEEFC",
-        alignItems: "center",
-        justifyContent: 'center',
     },
     timer: {
         justifyContent: 'center',

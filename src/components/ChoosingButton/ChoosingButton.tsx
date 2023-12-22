@@ -2,19 +2,19 @@ import { Pressable,Text } from "react-native";
 
 interface IChoosingButton{
     buttonTitle:string;
-    onChoosingColor:string;
+    onSelectColor:string;
     onSelect:()=>void;
-    isChoosed?:boolean;
+    isSelected?:boolean;
 }
 
-const ChoosingButton=({buttonTitle,onSelect,onChoosingColor,isChoosed}:IChoosingButton)=>{
+const ChoosingButton=({buttonTitle,onSelect,onSelectColor,isSelected}:IChoosingButton)=>{
 
     return(
-        <Pressable 
+        <Pressable
         onPress={onSelect} 
-        style={{width:152.5,height:60,backgroundColor:(isChoosed?onChoosingColor:'white'),
+        style={{width:152.5,height:60,backgroundColor:(isSelected?onSelectColor:'white'),
         borderRadius:10,justifyContent:'center',alignItems:'center',display:'flex'}}>
-            <Text style={{fontSize:16,color:isChoosed ?'#6A5AE0':'black'}}>{buttonTitle}</Text>
+            <Text style={{fontSize:16,color:isSelected ?'black':'#6A5AE0'}}>{buttonTitle}</Text>
         </Pressable>
     )
 }
