@@ -2,10 +2,6 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/OFL.txt",
-      "sha1": "8d6c34b70e3d638c82d7b5aba3f847f7d6d2c831"
-    },
-    {
       "path": "src/assets/fonts/Poppins-Black.ttf",
       "sha1": "645e04c53c6b5b35bce654a811ebce16af8aa721"
     },

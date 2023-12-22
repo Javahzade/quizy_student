@@ -1,13 +1,16 @@
 import {configureStore} from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {categoriesSlice} from '../screens/Home/slice';
 
-const persistConfig = {
-  key: 'root',
-  storage: AsyncStorage,
-};
+// const persistConfig = {
+//   key: 'root',
+//   storage: AsyncStorage,
+// };
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    categories: categoriesSlice.reducer,
+  },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
