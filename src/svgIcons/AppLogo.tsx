@@ -1,13 +1,12 @@
 import * as React from "react"
 import Svg, { SvgProps, Path, Mask, Rect, G } from "react-native-svg"
 
-const AppLogoIcon = (props: SvgProps) => (
+const AppLogoIcon = ({width,height}) => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
-    width={124}
-    height={166}
+    width={width||45}
+    height={height||45}
     fill="none"
-    {...props}
   >
     <Path
       fill="#fff"
