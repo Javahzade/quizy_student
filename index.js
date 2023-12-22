@@ -7,4 +7,4 @@ import App from './src/App';
 import {name as appName} from './app.json';
 import TrueFalseScreen from './src/screens/True-False';
 
-AppRegistry.registerComponent(appName, () => TrueFalseScreen);
+AppRegistry.registerComponent(appName, () => App);
